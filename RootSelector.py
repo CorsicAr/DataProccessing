@@ -32,12 +32,16 @@ class RootPathSelection(wx.Panel):
 
         # stacking layout
         main_sizer.Add(Title, 0, wx.ALL, 5)
+
         hsizerBrowse.Add(browse_btn, 0, wx.ALL, 5)
         hsizerBrowse.Add(self.Root_Path, 0, wx.ALL, 5)
         hsizerBrowse.Add(path_title, 0, wx.ALL, 5)
+
         main_sizer.Add(hsizerBrowse, 0, wx.ALL, 5)
+
         hsizerRC.Add(self.Num_Folders, 0,wx.ALL, 5)
         hsizerRC.Add(num_folders_title, 0,wx.ALL, 5)
+
         main_sizer.Add(hsizerRC, 0, wx.ALL, 5)
         main_sizer.Add(self.img_Folders)
         main_sizer.Add(self.NextStep)

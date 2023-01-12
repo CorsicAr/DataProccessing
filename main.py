@@ -28,7 +28,9 @@ class MyForm(wx.Frame):
 
         menubar = wx.MenuBar()
         fileMenu = wx.Menu()
+
         self.panel_one.NextStep.Bind(wx.EVT_BUTTON, self.onSwitchPanels)
+
         menubar.Append(fileMenu, '&File')
         self.SetMenuBar(menubar)
 
