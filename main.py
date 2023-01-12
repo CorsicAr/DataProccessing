@@ -3,10 +3,11 @@ import glob
 import random
 
 import wx
+# pages imported from other scripts
 import ImageCroping
 import RootSelector
 
-
+# function to open main window and transfer between pages
 ########################################################################
 class MyForm(wx.Frame):
 

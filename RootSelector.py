@@ -4,7 +4,7 @@ import random
 
 import wx
 
-
+# Window to select file base
 class RootPathSelection(wx.Panel):
 
     def __init__(self, parent):

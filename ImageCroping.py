@@ -12,7 +12,7 @@ import matplotlib.patches as mpatches
 import math
 import random
 import os
-
+# Window to crop scripts
 class ImageCropPanel(wx.Panel):
 
     def __init__(self, parent):
