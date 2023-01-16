@@ -14,9 +14,7 @@ class MyForm(wx.Frame):
     #----------------------------------------------------------------------
     def __init__(self):
         wx.Frame.__init__(self, None, wx.ID_ANY,
-                          "Directory Selection",
-                          size=(800,600))
-
+                          "Directory Selection")
         self.panel_one = RootSelector.RootPathSelection(self)
         self.panel_two = ImageCroping.ImageCropPanel(self)
         self.panel_two.Hide()
@@ -36,15 +34,12 @@ class MyForm(wx.Frame):
 
     #----------------------------------------------------------------------
     def onSwitchPanels(self, event):
+        paths = self.panel_one.img_Folders.GetValue().split('\n')
 
-        if self.panel_one.IsShown():
-           self.SetTitle("Panel Two Showing")
-           self.panel_one.Hide()
-           self.panel_two.Show()
-        else:
-           self.SetTitle("Panel One Showing")
-           self.panel_one.Show()
-           self.panel_two.Hide()
+        self.panel_two.set_root(paths)
+        self.panel_one.Hide()
+        self.panel_two.Show()
+
         self.Layout()
 
 # Run the program
