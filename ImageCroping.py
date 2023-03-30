@@ -116,6 +116,8 @@ class ImageCropPanel(wx.Panel):
         self.qz_btn.Bind(wx.EVT_CHECKBOX, self.on_letters)
         self.symbol_btn = wx.CheckBox(self, label='Symbol')
         self.symbol_btn.Bind(wx.EVT_CHECKBOX, self.on_letters)
+        self.symbol_input = wx.TextCtrl(self, size=(500, -1))
+        self.symbol_input.Disable()
 
         # Save Set btn
         set_imgs_btn = wx.Button(self, label='Set Image Crop')
@@ -185,6 +187,7 @@ class ImageCropPanel(wx.Panel):
 
         main_sizer.Add(hsizerRC)
         main_sizer.Add(hsizerletters)
+        main_sizer.Add(self.symbol_input)
         main_sizer.Add(set_imgs_btn)
         main_sizer.Add(save_imgs_btn)
 
@@ -204,20 +207,28 @@ class ImageCropPanel(wx.Panel):
             self.gp_btn.SetValue(0)
             self.qz_btn.SetValue(0)
             self.symbol_btn.SetValue(0)
-        if cb.GetLabel() == 'G - P':
+            self.symbol_input.Disable()
+
+        elif cb.GetLabel() == 'G - P':
             self.af_btn.SetValue(0)
             self.qz_btn.SetValue(0)
             self.symbol_btn.SetValue(0)
-        if cb.GetLabel() == 'Q - Z':
+            self.symbol_input.Disable()
+
+        elif cb.GetLabel() == 'Q - Z':
             self.af_btn.SetValue(0)
             self.gp_btn.SetValue(0)
             self.symbol_btn.SetValue(0)
-        if cb.GetLabel() == 'Symbol':
+            self.symbol_input.Disable()
+
+        elif cb.GetLabel() == 'Symbol':
             self.af_btn.SetValue(0)
             self.gp_btn.SetValue(0)
             self.qz_btn.SetValue(0)
+            self.symbol_input.Enable()
 
 
+        self.Refresh()
 
 
     def set_root(self, paths):
@@ -446,14 +457,21 @@ class ImageCropPanel(wx.Panel):
                 self.save_images(dialog.GetPath())
 
     def set_image_data(self, event):
+
         tl = [self.positionsX[self.indx_tl], self.positionsY[self.indx_tl]]
         tr = [self.positionsX[self.indx_tr], self.positionsY[self.indx_tr]]
         bl = [self.positionsX[self.indx_bl], self.positionsY[self.indx_bl]]
         br = [self.positionsX[self.indx_br], self.positionsY[self.indx_br]]
+
         self.scan_data[self.folder_indx].images[self.image_indx].set_bbox(tl, tr, bl, br)
         self.scan_data[self.folder_indx].images[self.image_indx].set_grid_param(self.num_row, self.num_colum,
                                                                                 self.buf_size)
-        self.scan_data[self.folder_indx].images[self.image_indx].set_letter_range(self.letters)
+        if self.letters == 'Symbol':
+            self.scan_data[self.folder_indx].images[self.image_indx].set_letter_range(self.symbol_input.GetValue())
+            print(self.scan_data[self.folder_indx].images[self.image_indx].letter_range)
+        else:
+            self.scan_data[self.folder_indx].images[self.image_indx].set_letter_range(self.letters)
+
         self.set_info()
 
         if self.scan_data[self.folder_indx].images[self.image_indx].full == True:
@@ -476,6 +494,7 @@ class ImageCropPanel(wx.Panel):
         g.bind('foaf', FOAF)
         g.bind('schema', SDO)
         g.bind('dcterms', DCTERMS)
+
 
 
         for i, scan in enumerate( self.scan_data):
@@ -511,25 +530,29 @@ class ImageCropPanel(wx.Panel):
                     letter_range = ['g','h','i','j','k','l', 'm', 'n', 'o','p']
                 elif img.letter_range == 'Q - Z':
                     letter_range = ['q','r','s','t','u','v', 'w', 'x', 'y', 'z']
+                else:
+                    letter_range = img.letter_range.split(', ')
+                    print(len(letter_range))
+                    print(img.letter_range)
 
                 self.load_image()
                 img.set_crop_size()
-
+                imgIndx = 0
                 for y in range(0, img.columns):
 
                     ltr = ""
                     folderName = ""
                     if len(letter_range) <= y:
-                        ltr = str(y)
+                        ltr = str(imgIndx)
                         folderName = os.path.join(scanName, ltr + '\\')
+                        imgIndx+=1
                     else:
-                        ltr =  letter_range[y]
+                        ltr =letter_range[y]
                         folderName = os.path.join(scanName, ltr + '\\')
-
                     if i==0:
                         letter = Literal(ltr, lang='en')
                         g.add((letter, RDF.type, FOAF.topic))
-                        g.add((person, DCTERMS.created, letter))
+                        g.add((person, DCTERMS.creator, letter))
 
 
 
