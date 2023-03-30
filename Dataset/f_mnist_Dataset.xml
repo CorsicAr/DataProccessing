@@ -1,0 +1,361 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ex: <http://fmnist.org/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix schema: <https://schema.org/> .
+
+ex:Meg a foaf:Person ;
+    dcterms:created "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\@\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\@\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\@\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\@\\3.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\a\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\a\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\a\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\a\\3.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\b\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\b\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\b\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\b\\3.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\c\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\c\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\c\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\c\\3.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\confused face\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\confused face\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\confused face\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\confused face\\3.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\d\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\d\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\d\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\d\\3.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\e\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\e\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\e\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\e\\3.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\f\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\f\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\f\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\f\\3.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\g\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\g\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\g\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\g\\3.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\glasses\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\glasses\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\glasses\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\glasses\\3.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\h\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\h\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\h\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\h\\3.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\i\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\i\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\i\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\i\\3.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\j\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\j\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\j\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\j\\3.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\k\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\k\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\k\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\k\\3.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\l\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\l\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\l\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\l\\3.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\m\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\m\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\m\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\m\\3.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\n\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\n\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\n\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\n\\3.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\o\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\o\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\o\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\o\\3.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\p\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\p\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\p\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\p\\3.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\peace\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\peace\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\peace\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\peace\\3.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\q\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\q\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\q\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\q\\3.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\r\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\r\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\r\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\r\\3.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\roller skate\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\roller skate\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\roller skate\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\roller skate\\3.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\s\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\s\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\s\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\s\\3.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\smiley face\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\smiley face\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\smiley face\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\smiley face\\3.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\t\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\t\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\t\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\t\\3.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\u\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\u\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\u\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\u\\3.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\v\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\v\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\v\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\v\\3.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\w\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\w\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\w\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\w\\3.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\x\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\x\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\x\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\x\\3.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\y\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\y\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\y\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\y\\3.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\z\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\z\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\z\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\z\\3.png"@en ;
+    dcterms:creator "@"@en,
+        "a"@en,
+        "b"@en,
+        "c"@en,
+        "confused face"@en,
+        "d"@en,
+        "e"@en,
+        "f"@en,
+        "g"@en,
+        "glasses"@en,
+        "h"@en,
+        "i"@en,
+        "j"@en,
+        "k"@en,
+        "l"@en,
+        "m"@en,
+        "n"@en,
+        "o"@en,
+        "p"@en,
+        "peace"@en,
+        "q"@en,
+        "r"@en,
+        "roller skate"@en,
+        "s"@en,
+        "smiley face"@en,
+        "t"@en,
+        "u"@en,
+        "v"@en,
+        "w"@en,
+        "x"@en,
+        "y"@en,
+        "z"@en ;
+    schema:homeLocation "London"@en ;
+    schema:intensity "merging morphing letter into one form, teaching the algorithm to be messier"@en .
+
+"@"@en a foaf:topic ;
+    foaf:Image "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\@\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\@\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\@\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\@\\3.png"@en .
+
+"a"@en a foaf:topic ;
+    foaf:Image "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\a\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\a\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\a\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\a\\3.png"@en .
+
+"b"@en a foaf:topic ;
+    foaf:Image "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\b\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\b\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\b\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\b\\3.png"@en .
+
+"c"@en a foaf:topic ;
+    foaf:Image "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\c\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\c\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\c\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\c\\3.png"@en .
+
+"confused face"@en a foaf:topic ;
+    foaf:Image "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\confused face\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\confused face\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\confused face\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\confused face\\3.png"@en .
+
+"d"@en a foaf:topic ;
+    foaf:Image "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\d\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\d\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\d\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\d\\3.png"@en .
+
+"e"@en a foaf:topic ;
+    foaf:Image "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\e\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\e\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\e\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\e\\3.png"@en .
+
+"f"@en a foaf:topic ;
+    foaf:Image "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\f\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\f\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\f\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\f\\3.png"@en .
+
+"g"@en a foaf:topic ;
+    foaf:Image "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\g\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\g\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\g\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\g\\3.png"@en .
+
+"glasses"@en a foaf:topic ;
+    foaf:Image "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\glasses\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\glasses\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\glasses\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\glasses\\3.png"@en .
+
+"h"@en a foaf:topic ;
+    foaf:Image "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\h\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\h\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\h\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\h\\3.png"@en .
+
+"i"@en a foaf:topic ;
+    foaf:Image "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\i\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\i\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\i\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\i\\3.png"@en .
+
+"j"@en a foaf:topic ;
+    foaf:Image "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\j\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\j\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\j\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\j\\3.png"@en .
+
+"k"@en a foaf:topic ;
+    foaf:Image "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\k\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\k\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\k\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\k\\3.png"@en .
+
+"l"@en a foaf:topic ;
+    foaf:Image "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\l\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\l\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\l\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\l\\3.png"@en .
+
+"m"@en a foaf:topic ;
+    foaf:Image "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\m\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\m\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\m\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\m\\3.png"@en .
+
+"n"@en a foaf:topic ;
+    foaf:Image "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\n\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\n\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\n\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\n\\3.png"@en .
+
+"o"@en a foaf:topic ;
+    foaf:Image "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\o\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\o\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\o\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\o\\3.png"@en .
+
+"p"@en a foaf:topic ;
+    foaf:Image "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\p\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\p\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\p\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\p\\3.png"@en .
+
+"peace"@en a foaf:topic ;
+    foaf:Image "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\peace\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\peace\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\peace\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\peace\\3.png"@en .
+
+"q"@en a foaf:topic ;
+    foaf:Image "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\q\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\q\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\q\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\q\\3.png"@en .
+
+"r"@en a foaf:topic ;
+    foaf:Image "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\r\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\r\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\r\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\r\\3.png"@en .
+
+"roller skate"@en a foaf:topic ;
+    foaf:Image "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\roller skate\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\roller skate\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\roller skate\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\roller skate\\3.png"@en .
+
+"s"@en a foaf:topic ;
+    foaf:Image "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\s\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\s\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\s\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\s\\3.png"@en .
+
+"smiley face"@en a foaf:topic ;
+    foaf:Image "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\smiley face\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\smiley face\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\smiley face\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\smiley face\\3.png"@en .
+
+"t"@en a foaf:topic ;
+    foaf:Image "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\t\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\t\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\t\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\t\\3.png"@en .
+
+"u"@en a foaf:topic ;
+    foaf:Image "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\u\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\u\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\u\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\u\\3.png"@en .
+
+"v"@en a foaf:topic ;
+    foaf:Image "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\v\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\v\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\v\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\v\\3.png"@en .
+
+"w"@en a foaf:topic ;
+    foaf:Image "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\w\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\w\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\w\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\w\\3.png"@en .
+
+"x"@en a foaf:topic ;
+    foaf:Image "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\x\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\x\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\x\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\x\\3.png"@en .
+
+"y"@en a foaf:topic ;
+    foaf:Image "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\y\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\y\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\y\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\y\\3.png"@en .
+
+"z"@en a foaf:topic ;
+    foaf:Image "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\z\\0.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\z\\1.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\z\\2.png"@en,
+        "C:\\Users\\simms\\Documents\\work\\IP\\f-mnist data\\DataProccessing\\images\\Meg\\z\\3.png"@en .
+
