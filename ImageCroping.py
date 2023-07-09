@@ -1,7 +1,6 @@
-# image_viewer_working.py
-import glob
-import random
+## import libs
 
+import glob
 import wx
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_wxagg import FigureCanvasWxAgg as FigureCanvas
@@ -20,11 +19,13 @@ from rdflib import Graph
 
 
 
-# Window to crop scripts
+# Window to crop imgs, create class with wx panel
 class ImageCropPanel(wx.Panel):
 
     def __init__(self, parent):
+        ## init it to parent window
         super().__init__(parent)
+        ## init variables (I can't rember what they all do, but feel free to comment)
         self.scan_data = []
         self.folder_indx = 0
         self.image_indx = 0
@@ -54,17 +55,18 @@ class ImageCropPanel(wx.Panel):
         self.canvas = FigureCanvas(self, -1, self.figure)
         self.canvas.mpl_connect('button_press_event', self.on_click)
 
-        # Folder button
+
+        # GUI with wx
+        ## Folder button
         last_btn = wx.Button(self, label='Last')
         last_btn.Bind(wx.EVT_BUTTON, self.on_last_btn)
         nxt_btn = wx.Button(self, label='Next')
         nxt_btn.Bind(wx.EVT_BUTTON, self.on_nxt_btn)
         self.file_txt = wx.TextCtrl(self, size=(200, -1))
-
         folderInfoTtl = wx.StaticText(self,label = "Folder Info")
         self.folder_info = wx.TextCtrl(self, size=(300, -1))
 
-
+        ## input datat
         nameTitle = wx.StaticText(self, label="Name")
         self.name = wx.TextCtrl(self, size=(300, -1))
         homeTitle = wx.StaticText(self, label="Home")
@@ -76,13 +78,12 @@ class ImageCropPanel(wx.Panel):
         saveDataButton = wx.Button(self, label="Save Data")
         saveDataButton.Bind(wx.EVT_BUTTON, self.save_data)
 
-        # Img browse button
+        ## Img browse button
         last_img_btn = wx.Button(self, label='Last')
         last_img_btn.Bind(wx.EVT_BUTTON, self.on_last_img_btn)
         nxt_img_btn = wx.Button(self, label='Next')
         nxt_img_btn.Bind(wx.EVT_BUTTON, self.on_next_img_btn)
         self.photo_txt = wx.TextCtrl(self, size=(200, -1))
-
         imgInfoTtl = wx.StaticText(self, label="Image Info")
         self.img_info = wx.TextCtrl(self, size=(300, -1))
 
@@ -108,6 +109,7 @@ class ImageCropPanel(wx.Panel):
         croptst_btn = wx.Button(self, label='TestCrops')
         croptst_btn.Bind(wx.EVT_BUTTON, self.preview_crops)
 
+        ## Letter selection
         self.af_btn = wx.CheckBox(self, label='A - F')
         self.af_btn.Bind(wx.EVT_CHECKBOX, self.on_letters)
         self.gp_btn = wx.CheckBox(self, label='G - P')
@@ -134,10 +136,10 @@ class ImageCropPanel(wx.Panel):
         hsizerImg = wx.BoxSizer(wx.HORIZONTAL)
         hsizerRC = wx.BoxSizer(wx.HORIZONTAL)
 
-        # stacking layout
+        # stacking layout, basically orderning the components into a gui layout by parenting them.
         image_sizer.Add(self.canvas, 0, wx.ALL, 5)
 
-        # file finder
+
         hsizerBrowse.Add(last_btn, 0, wx.ALL, 5)
         hsizerBrowse.Add(self.file_txt, 0, wx.ALL, 5)
         hsizerBrowse.Add(nxt_btn, 0, wx.ALL, 5)
@@ -145,7 +147,7 @@ class ImageCropPanel(wx.Panel):
         hsizerBrowse.Add(self.folder_info)
         main_sizer.Add(hsizerBrowse, 0, wx.ALL, 5)
 
-        # info input
+
         hsizername = wx.BoxSizer(wx.HORIZONTAL)
         hsizerhome = wx.BoxSizer(wx.HORIZONTAL)
         hsizerint = wx.BoxSizer(wx.HORIZONTAL)
@@ -163,7 +165,7 @@ class ImageCropPanel(wx.Panel):
         main_sizer.Add(zoomDataButton, 0, wx.ALL, 5)
         main_sizer.Add(saveDataButton, 0, wx.ALL, 5)
 
-        # file finder
+
         hsizerImg.Add(last_img_btn, 0, wx.ALL, 5)
         hsizerImg.Add(self.photo_txt, 0, wx.ALL, 5)
         hsizerImg.Add(nxt_img_btn, 0, wx.ALL, 5)
@@ -198,6 +200,8 @@ class ImageCropPanel(wx.Panel):
 
         self.Layout()
 
+
+    # Function for letter selection toggles
     def on_letters(self, event):
 
         cb = event.GetEventObject()
@@ -230,7 +234,7 @@ class ImageCropPanel(wx.Panel):
 
         self.Refresh()
 
-
+    # Function to set root of images and load them
     def set_root(self, paths):
         self.root_paths = paths
         self.root_indx = 0
@@ -246,6 +250,7 @@ class ImageCropPanel(wx.Panel):
         self.set_info()
         self.load_image()
 
+    ## function to zoom into where the hand written datais
     def zoom_to_data(self, event):
 
         if self.zoomed:
@@ -264,37 +269,41 @@ class ImageCropPanel(wx.Panel):
                 self.img_cntrl = self.axes.imshow(self.img_crop)
                 self.canvas.draw()
 
+    ## saves the data? still working it out
     def save_data(self, event):
         self.scan_data[self.folder_indx].setData(self.name.GetValue(), self.home.GetValue(), self.intention.GetValue())
         self.set_info()
 
-    # on row slider
+    ## on row slider
     def on_slideR(self, event):
         obj = event.GetEventObject()
         self.num_row = obj.GetValue()
 
-    # on column slider
+    ## on column slider
     def on_slideC(self, event):
         obj = event.GetEventObject()
         self.num_colum = obj.GetValue()
 
-    # on column slider
+    ## on column slider
     def on_slideB(self, event):
         obj = event.GetEventObject()
         self.buf_size = obj.GetValue()
 
+    ## changes img to last
     def on_last_img_btn(self, event):
         self.image_indx -= 1
         if self.image_indx < 0:
             self.image_indx = len(self.scan_data[self.folder_indx].images) - 1
         self.load_image()
 
+    ## changes img to next
     def on_next_img_btn(self, event):
         self.image_indx += 1
         if self.image_indx > len(self.scan_data[self.folder_indx].images) - 1:
             self.image_indx = 0
         self.load_image()
 
+    ## changes page indx to last
     def on_last_btn(self, event):
         self.folder_indx -= 1
         if self.folder_indx < 0:
@@ -302,7 +311,7 @@ class ImageCropPanel(wx.Panel):
         self.set_info()
         self.file_txt.SetValue(self.scan_data[self.folder_indx].root_path)
         self.load_image()
-
+    ## changes page indx to next
     def on_nxt_btn(self, event):
         self.folder_indx += 1
 
@@ -312,6 +321,7 @@ class ImageCropPanel(wx.Panel):
         self.file_txt.SetValue(self.scan_data[self.folder_indx].root_path)
         self.load_image()
 
+    ## sets the info of the folder?
     def set_info(self):
         text = ""
         if self.scan_data[self.folder_indx].full == True:
@@ -393,6 +403,7 @@ class ImageCropPanel(wx.Panel):
         self.canvas.draw()
         self.Refresh()
 
+    # when cropping this works out which corners which
     def order_indxs(self):
 
         # order the points
@@ -421,6 +432,7 @@ class ImageCropPanel(wx.Panel):
                 br_dist = math.dist((self.img.shape[0], self.img.shape[1]), (x, y))
                 self.indx_br = i
 
+    ## shows a random preview of a cropped index
     def preview_crops(self, event):
 
         x = random.randint(0, self.num_row - 1)
@@ -437,25 +449,26 @@ class ImageCropPanel(wx.Panel):
             self.img_cntrl = self.axes.imshow(self.img_crop)
             self.canvas.draw()
 
+    ## gets the size between the points
     def set_crop_size(self):
 
         self.width = (self.positionsX[self.indx_tr] - self.positionsX[self.indx_tl]) / self.num_row
         self.height = (self.positionsY[self.indx_br] - self.positionsY[self.indx_tr]) / self.num_colum
 
-
+    ## crops the scan to x,y of width and height
     def crop_image(self, x, y):
         self.img_crop = self.img[int(self.positionsY[self.indx_tl] + self.height * y) + self.buf_size:int(
             self.positionsY[self.indx_tl] + self.height * y + self.height) - self.buf_size,
                         int(self.positionsX[self.indx_tl] + self.width * x) + self.buf_size:int(
                             self.positionsX[self.indx_tl] + self.width * x + self.width) - self.buf_size]
-
+    ## called on save button after browsed folder
     def on_browse_save(self, event):
         wildcard = "folders (*)|*"
         with wx.DirDialog(None, "Choose a save folder",
                           style=wx.ID_OPEN) as dialog:
             if dialog.ShowModal() == wx.ID_OK:
                 self.save_images(dialog.GetPath())
-
+    ## prepares the crop images variables
     def set_image_data(self, event):
 
         tl = [self.positionsX[self.indx_tl], self.positionsY[self.indx_tl]]
@@ -479,7 +492,7 @@ class ImageCropPanel(wx.Panel):
         else:
             self.img_info.SetValue("Un-Set")
 
-
+    ## saves the data as a LOD format and saves imgs
     def save_images(self, base_path):
 
         EX = Namespace('http://fmnist.org/')
@@ -587,7 +600,7 @@ class ImageCropPanel(wx.Panel):
         g.serialize(destination= base_path+'//f_mnist_Dataset.ttl')
         g.serialize(destination=base_path + '//f_mnist_Dataset.xml')
 
-
+# class to hold scan data
 class ScanInfo:
 
     def __init__(self, root):
@@ -613,7 +626,7 @@ class ScanInfo:
         self.full = True
 
 
-
+# class to hold crop info data
 class ImageCropInfo:
     def __init__(self):
         self.height = None
