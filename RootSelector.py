@@ -1,6 +1,5 @@
 # image_viewer_working.py
 import glob
-import random
 
 import wx
 
