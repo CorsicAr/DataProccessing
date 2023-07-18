@@ -1,6 +1,8 @@
 ## import libs
 
 import glob
+
+import cv2
 import wx
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_wxagg import FigureCanvasWxAgg as FigureCanvas
@@ -17,7 +19,7 @@ from rdflib import URIRef, BNode, Literal, Namespace
 from rdflib.namespace import FOAF, DCTERMS, XSD, RDF, SDO
 from rdflib import Graph
 
-
+import QRRead
 
 # Window to crop imgs, create class with wx panel
 class ImageCropPanel(wx.Panel):
@@ -26,6 +28,7 @@ class ImageCropPanel(wx.Panel):
         ## init it to parent window
         super().__init__(parent)
         ## init variables (I can't rember what they all do, but feel free to comment)
+        self.data = None
         self.scan_data = []
         self.folder_indx = 0
         self.image_indx = 0
@@ -88,21 +91,21 @@ class ImageCropPanel(wx.Panel):
         self.img_info = wx.TextCtrl(self, size=(300, -1))
 
         # Rows slider
-        sliderR = wx.Slider(self, value=self.num_row, minValue=0, maxValue=20,
+        self.sliderR = wx.Slider(self, value=self.num_row, minValue=0, maxValue=20,
                             style=wx.SL_HORIZONTAL | wx.SL_VALUE_LABEL, name="Rows")
-        sliderR.Bind(wx.EVT_SLIDER, self.on_slideR)
+        self.sliderR.Bind(wx.EVT_SLIDER, self.on_slideR)
         sliderRTtl = wx.StaticText(self, label="Rows")
 
         # Columns slider
-        sliderC = wx.Slider(self, value=self.num_colum, minValue=0, maxValue=20,
+        self.sliderC = wx.Slider(self, value=self.num_colum, minValue=0, maxValue=20,
                             style=wx.SL_HORIZONTAL | wx.SL_VALUE_LABEL, name="Rows")
-        sliderC.Bind(wx.EVT_SLIDER, self.on_slideC)
+        self.sliderC.Bind(wx.EVT_SLIDER, self.on_slideC)
         sliderCTtl = wx.StaticText(self, label="Collumns")
 
         # boarder slider
-        sliderB = wx.Slider(self, value=0, minValue=0, maxValue=100, style=wx.SL_HORIZONTAL | wx.SL_VALUE_LABEL,
+        self.sliderB = wx.Slider(self, value=0, minValue=0, maxValue=100, style=wx.SL_HORIZONTAL | wx.SL_VALUE_LABEL,
                             name="Rows")
-        sliderB.Bind(wx.EVT_SLIDER, self.on_slideB)
+        self.sliderB.Bind(wx.EVT_SLIDER, self.on_slideB)
         sliderBTtl = wx.StaticText(self, label="Buffer Space (px)")
 
         # Test Crops btn
@@ -128,6 +131,10 @@ class ImageCropPanel(wx.Panel):
         # Save Images btn
         save_imgs_btn = wx.Button(self, label='Save Image Crop')
         save_imgs_btn.Bind(wx.EVT_BUTTON, self.on_browse_save)
+
+        # Scan QR btn
+        scan_qr_btn = wx.Button(self, label='Automatic QR Scan')
+        scan_qr_btn.Bind(wx.EVT_BUTTON, self.on_qr_scan)
 
         # Layout
         image_sizer = wx.BoxSizer(wx.HORIZONTAL)
@@ -173,11 +180,11 @@ class ImageCropPanel(wx.Panel):
         hsizerImg.Add(self.img_info)
         main_sizer.Add(hsizerImg, 0, wx.ALL, 5)
 
-        hsizerRC.Add(sliderR, 0, wx.ALL, 5)
+        hsizerRC.Add(self.sliderR, 0, wx.ALL, 5)
         hsizerRC.Add(sliderRTtl, 0, wx.ALL, 5)
-        hsizerRC.Add(sliderC, 0, wx.ALL, 5)
+        hsizerRC.Add(self.sliderC, 0, wx.ALL, 5)
         hsizerRC.Add(sliderCTtl, 0, wx.ALL, 5)
-        hsizerRC.Add(sliderB, 0, wx.ALL, 5)
+        hsizerRC.Add(self.sliderB, 0, wx.ALL, 5)
         hsizerRC.Add(sliderBTtl, 0, wx.ALL, 5)
         hsizerRC.Add(croptst_btn)
 
@@ -192,6 +199,7 @@ class ImageCropPanel(wx.Panel):
         main_sizer.Add(self.symbol_input)
         main_sizer.Add(set_imgs_btn)
         main_sizer.Add(save_imgs_btn)
+        main_sizer.Add(scan_qr_btn)
 
         image_sizer.Add(main_sizer, 0, wx.ALL, 5)
 
@@ -398,7 +406,7 @@ class ImageCropPanel(wx.Panel):
 
         self.photo_txt.SetValue(self.scan_data[self.folder_indx].images[self.image_indx].path)
         filepath = self.photo_txt.GetValue()
-        self.img = mpimg.imread(filepath)
+        self.img = cv2.imread(filepath)
         self.img_cntrl = self.axes.imshow(self.img)
         self.canvas.draw()
         self.Refresh()
@@ -440,6 +448,7 @@ class ImageCropPanel(wx.Panel):
 
         self.set_crop_size()
 
+
         self.crop_image(x, y)
         # self.figure.clear(True)
 
@@ -452,16 +461,59 @@ class ImageCropPanel(wx.Panel):
     ## gets the size between the points
     def set_crop_size(self):
 
-        self.width = (self.positionsX[self.indx_tr] - self.positionsX[self.indx_tl]) / self.num_row
-        self.height = (self.positionsY[self.indx_br] - self.positionsY[self.indx_tr]) / self.num_colum
+        # self.set_crop_size()
+        points = np.hstack((self.positionsX, self.positionsY))
+
+        self.sqaure_img = QRRead.four_point_transform(self.img, points)
+        self.height, self.width, _ = self.sqaure_img.shape
+
+        self.width /= self.num_row
+        self.height /= self.num_colum
 
     ## crops the scan to x,y of width and height
     def crop_image(self, x, y):
-        self.img_crop = self.img[int(self.positionsY[self.indx_tl] + self.height * y) + self.buf_size:int(
-            self.positionsY[self.indx_tl] + self.height * y + self.height) - self.buf_size,
-                        int(self.positionsX[self.indx_tl] + self.width * x) + self.buf_size:int(
-                            self.positionsX[self.indx_tl] + self.width * x + self.width) - self.buf_size]
+
+
+        self.img_crop = self.sqaure_img[int(self.height * y) + self.buf_size:int(
+                        self.height * y + self.height) - self.buf_size,
+                        int( self.width * x) + self.buf_size:int(
+                        self.width * x + self.width) - self.buf_size]
     ## called on save button after browsed folder
+    def on_qr_scan(self, event):
+
+        self.data = QRRead.read_qr_code(self.img)
+
+        # set positions
+        self.positionsX = self.data.points_x
+        self.positionsY = self.data.points_y
+        # set rows and columns
+        self.sliderR.SetValue(self.data.num_indxs)
+        self.sliderC.SetValue(self.data.num_symbols)
+        self.num_colum = self.data.num_indxs
+        self.num_row = self.data.num_symbols
+        # set using symbols
+        self.letters = 'Symbol'
+        self.af_btn.SetValue(0)
+        self.gp_btn.SetValue(0)
+        self.qz_btn.SetValue(0)
+        self.symbol_btn.SetValue(1)
+        self.symbol_input.Enable()
+        self.symbol_input.SetValue(self.data.indxs_str)
+
+        try:
+            self.lines.remove()
+        except:
+            print("no lines")
+        try:
+            self.patches.remove()
+        except:
+            print("no polys")
+
+        coords = np.hstack((self.positionsX, self.positionsY))
+
+        self.patches = self.axes.add_patch(mpatches.Polygon(coords, alpha=0.5))
+        self.canvas.draw()
+
     def on_browse_save(self, event):
         wildcard = "folders (*)|*"
         with wx.DirDialog(None, "Choose a save folder",
@@ -471,12 +523,12 @@ class ImageCropPanel(wx.Panel):
     ## prepares the crop images variables
     def set_image_data(self, event):
 
-        tl = [self.positionsX[self.indx_tl], self.positionsY[self.indx_tl]]
-        tr = [self.positionsX[self.indx_tr], self.positionsY[self.indx_tr]]
-        bl = [self.positionsX[self.indx_bl], self.positionsY[self.indx_bl]]
-        br = [self.positionsX[self.indx_br], self.positionsY[self.indx_br]]
+        #tl = [self.positionsX[self.indx_tl], self.positionsY[self.indx_tl]]
+        #tr = [self.positionsX[self.indx_tr], self.positionsY[self.indx_tr]]
+        #bl = [self.positionsX[self.indx_bl], self.positionsY[self.indx_bl]]
+        #br = [self.positionsX[self.indx_br], self.positionsY[self.indx_br]]
 
-        self.scan_data[self.folder_indx].images[self.image_indx].set_bbox(tl, tr, bl, br)
+        self.scan_data[self.folder_indx].images[self.image_indx].set_points(self.positionsX,self.positionsY)# .set_bbox(tl, tr, bl, br)
         self.scan_data[self.folder_indx].images[self.image_indx].set_grid_param(self.num_row, self.num_colum,
                                                                                 self.buf_size)
         if self.letters == 'Symbol':
@@ -533,7 +585,7 @@ class ImageCropPanel(wx.Panel):
 
             for j, img in enumerate(scan.images):
 
-
+                print(img.rows, img.columns)
                 self.image_indx = j
 
                 letter_range = []
@@ -544,13 +596,14 @@ class ImageCropPanel(wx.Panel):
                 elif img.letter_range == 'Q - Z':
                     letter_range = ['q','r','s','t','u','v', 'w', 'x', 'y', 'z']
                 else:
-                    letter_range = img.letter_range.split(', ')
+                    letter_range = img.letter_range.split(',')
                     print(len(letter_range))
                     print(img.letter_range)
 
                 self.load_image()
-                img.set_crop_size()
+                self.sqaure_img = img.set_crop_size(self.img)
                 imgIndx = 0
+                print(self.sqaure_img.shape)
                 for y in range(0, img.columns):
 
                     ltr = ""
@@ -562,12 +615,11 @@ class ImageCropPanel(wx.Panel):
                     else:
                         ltr =letter_range[y]
                         folderName = os.path.join(scanName, ltr + '\\')
+
                     if i==0:
                         letter = Literal(ltr, lang='en')
                         g.add((letter, RDF.type, FOAF.topic))
                         g.add((person, DCTERMS.creator, letter))
-
-
 
                     try:
                         os.mkdir(folderName)
@@ -576,8 +628,10 @@ class ImageCropPanel(wx.Panel):
 
                     for x in range(0, img.rows):
 
-                        cropped_img = img.crop_image( self.img, x, y)
-
+                        cropped_img = img.crop_image(self.sqaure_img, y, x)
+                        print(np.sum(cropped_img.shape), cropped_img.shape)
+                        if np.sum(cropped_img.shape)==0:
+                            continue
                         try:
                             self.img_cntrl.remove()
                         finally:
@@ -653,18 +707,30 @@ class ImageCropInfo:
         self.br = bottomright
         self.full = True
 
+    def set_points(self, points_x, points_y):
+        self.points = np.hstack((points_x,points_y))
+
     def set_grid_param(self, numrows, numcollumns, buffersize):
         self.rows = numrows
         self.columns = numcollumns
         self.buffer = buffersize
 
-    def set_crop_size(self):
-        self.width = (self.tr[0] - self.tl[0]) / self.rows
-        self.height = (self.br[1] - self.tr[1]) / self.columns
+    def set_crop_size(self, img):
 
+
+        sqaure_img = QRRead.four_point_transform(img, self.points)
+        self.height, self.width, _ = sqaure_img.shape
+        print('h:', self.height, 'c:', self.rows)
+
+        self.width /= self.columns
+        self.height /=  self.rows
+
+        print('h:', self.height, 'w:', self.width)
+
+        return  sqaure_img
 
     def crop_image(self, img, x, y):
-        img_crop = img[int(self.tl[1] + self.height * y) + self.buffer:int(self.tl[1] + self.height * y + self.height)
-                            - self.buffer, int(self.tl[0] + self.width * x) + self.buffer:int(
-                            self.tl[0] + self.width * x + self.width) - self.buffer]
+        img_crop = img[int( self.height * y) + self.buffer:int( self.height * y + self.height)
+                            - self.buffer, int( self.width * x) + self.buffer:int(
+                            self.width * x + self.width) - self.buffer]
         return img_crop

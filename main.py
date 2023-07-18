@@ -6,6 +6,7 @@ import wx
 # pages imported from other scripts
 import ImageCroping
 import RootSelector
+import QRGenerator
 
 # function to open main window and transfer between pages
 ########################################################################
@@ -17,11 +18,14 @@ class MyForm(wx.Frame):
                           "Directory Selection")
         self.panel_one = RootSelector.RootPathSelection(self)
         self.panel_two = ImageCroping.ImageCropPanel(self)
+        self.panel_three = QRGenerator.QR_Generator(self)
+        self.panel_three.Hide()
         self.panel_two.Hide()
 
         self.sizer = wx.BoxSizer(wx.VERTICAL)
         self.sizer.Add(self.panel_one, 1, wx.EXPAND)
         self.sizer.Add(self.panel_two, 1, wx.EXPAND)
+        self.sizer.Add(self.panel_three, 1, wx.EXPAND)
         self.SetSizer(self.sizer)
 
         menubar = wx.MenuBar()
